@@ -58,7 +58,7 @@ function init(){
     $('.thryLi').hide();
     $('.sekondLi').hide();
 }
-/*
+
 function hideDiv(){
     $('.thryLi').hide();
 }
@@ -67,7 +67,8 @@ function showKomp(){
 }
 $('.thryLi').click(function(){
 				hideDiv();
-							});*/
+							});
+/*
 $('.Komp').click(function(){
 			$( this ).parent().next().toggle();
 
