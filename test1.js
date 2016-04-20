@@ -1,5 +1,5 @@
 var c = $("body");
-var ul1 = $("<ul>");
+var ul1 = $("<ul>").addClass("First");
 
 var zmaina;
 var taitl = {Komp:{ monitor:["samsung", "LG","biq"],
@@ -24,18 +24,18 @@ var GlobalFun = function(){
 		m.append(www) ;
 		ul1.append(m);	
 		
-					var ul2 = $("<ul class2>");
+					var ul2 = $("<ul>").addClass("sekondLi");
 				for (var i in zmaina){
-					var li2 = $("<li>").addClass("sekondLi").attr('id',www);
+					var li2 = $("<li>");
 					li2.append(i);
 					ul2.append(li2);
 					m.append(ul2);
 									if (zmaina[i] instanceof Array){
 									console.log(zmaina[i]);
 									var zmaina2 = zmaina[i];
-									var ul3 = $("<ul class3>");
+									var ul3 = $("<ul>").addClass("thryLi");
 									for (var i=0; i<zmaina2.length; i++){
-										var li3 = $("<li>").addClass("thryLi").attr('id',zmaina2);
+										var li3 = $("<li>");
 
 															
 										li3.append(zmaina2[i]);
@@ -55,20 +55,21 @@ GlobalFun(taitl);
 $(document).ready(init);
 
 function init(){
-    $('.thryLi').hide();
-    $('.sekondLi').hide();
+    $('ul').not('.First').hide();
+    
 }
 
-function hideDiv(){
-    $('.thryLi').hide();
+
+
+function showUl(){
+    $(this).children('ul').show();
 }
-function showKomp(){
-    $('#Komp').show();
-}
-$('.thryLi').click(function(){
-				hideDiv();
+$('li').click(function(e){
+				e.stopPropagation();
+				$(this).children('ul').toggle();
 							});
 /*
+$('ul').animate({fontSize:'20px'},2000)
 $('.Komp').click(function(){
 			$( this ).parent().next().toggle();
 
